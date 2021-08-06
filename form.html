@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="form.css">
+<title>Enter a Plant</title>
+
+</head>
+<body>
+
+<h1 id="title1">Enter your plants here</h1>
+<form action='action_page.php' method='GET'>
+    <label for="plantname">Name of your plant:</label><br>
+    <input type="text" id="plantname" name="plantname"><br>
+    <label for="plantdesc">A Short description of your plant</label><br>
+    <textarea name="plantdesc" rows="10" cols="30"></textarea><br>
+    <label for="plantimage">Insert a picture of your plant</label><br><br>
+    <input type="file" id="img" name="img" accept="image/*"><br>
+    <br>
+    <label for='days'>Choose which day of the week your plant must be watered</label> <br>
+    <input list="days">
+    <datalist id="days">
+        <option value="Monday">
+        <option value="Tuesday">
+        <option value="Wedensday">
+        <option value="thursday">
+        <option value="Friday">
+        <option value="Saturday">
+        <option value="Sunday">
+    </datalist>
+
+    </p>
+    <input type="submit" id="submit" name="submit">
+        
+<br>
+<br>
+
+
+</form>
+
+
+</body>
+</html>
