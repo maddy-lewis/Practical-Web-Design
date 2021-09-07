@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My first website</title>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+<img src="download.jpg" alt="Cat">
+<p>This is a picture of a cat</p>
+<a href='www.google.com'>This is a link to google</a>
+<ul>
+    <li>This is a list</li>
+    <li>This is a list</li>
+    <il>This is a list</il>
+</ul>
+
+
+
+</body>
+</html>
