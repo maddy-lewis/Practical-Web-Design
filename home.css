@@ -1,0 +1,45 @@
+body {
+    background-color: #6A6C6E
+}
+
+.column {
+    float: left;
+    width: 30%;
+    column-rule-style:solid;
+}
+
+.app-4 {
+    color: aliceblue
+}
+
+.header {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    color: darkslategrey;
+}
+
+.h1 {
+    color: darkslategrey;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: darkslategrey;
+    color:whitesmoke;
+}
+
+.topnav a {
+    float:left;
+    display:block;
+    color:whitesmoke;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:none;
+  
+}
+
+.topnav a:hover {
+    background-color: #5f5f6e;
+    color:white;
+}
