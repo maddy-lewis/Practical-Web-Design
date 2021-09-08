@@ -1,36 +1,116 @@
-<HTML>
-    <HEAD>
-    <TITLE> Javascript </TITLE>
-    </HEAD>
-    <BODY>
-        
-        <p>i am trying to create a tostring() function</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Vue app</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id = "app">
+        {{ message }}
+    </div>
 
-        <button onclick="myFunction()">Press this button</button>
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
 
-        <p id="demo"></p>
-        <script>
-            function myFunction() {
-                var num = 25;
-                var n = num.toString();
-                document.getElementById("demo").innerHTML = n;
-            }
-        </script>
-        <p id="array"></p>
-        <script>
-            const Types_Of_Plants = ["Zanzibar Gem ", "Devils Ivy ", " Rubber Plant "];
-            document.getElementById("array").innerHTML = Types_Of_Plants;
-        </script>
-        
-        <button onclick="gettime()">Click for time</button>
- 
-        <p id="time">The date and time will appear here after clicking this button</p>    
-       
-       <script>
-           function gettime() {
-                const d = new Date();
-                document.getElementById("time").innerHTML = d
-           }
-        </script>
-    </BODY>
-</HTML>
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+      </div>
+<br>
+      <div id="app-2">
+        <span v-bind:title="message">
+          Hover your mouse over me for a few seconds
+          to seethe time and date that this page was loaded
+        </span>
+      </div>
+    
+<script>
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+        message: 'You loaded this page on ' + new Date().toLocaleString()
+         }
+    })
+</script>
+     
+<div id="app-7">
+        <ol>
+          <todo-item
+            v-for="item in groceryList"
+            v-bind:todo="item"
+            v-bind:key="item.id"
+          ></todo-item>
+        </ol>
+      </div>
+    <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello Vue!'
+                }
+            })
+    </script>
+
+    <script>
+    var app4 = new Vue({
+         el: '#app-4',
+         data: {
+             todos: [
+                { text: 'Learn JavaScript' },
+                 { text: 'Learn Vue' },
+                 { text: 'Build something awesome' }
+            ]
+        }
+    })
+    </script>
+    <script>
+        var app5 = new Vue({
+         el: '#app-5',
+         data: {
+             message: 'Hello Vue.js!'
+        },
+        methods: {
+            reverseMessage: function () {
+             this.message = this.message.split('').reverse().join('')
+             }
+         }
+    })
+    </script>
+    <script>
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<li>{{ todo.text }}</li>'
+        })
+
+    var app7 = new Vue({
+        el: '#app-7',
+        data: {
+            groceryList: [
+            { id: 0, text: 'Vegetables' },
+            { id: 1, text: 'Cheese' },
+            { id: 2, text: 'Whatever else humans are supposed to eat' }
+            ]
+        }
+    })
+    </Script>
+
+<div id="app-3">
+    <span v-if="seen">Now you see me</span>
+  </div>
+
+  <script>
+      var app3 = new Vue({
+  el: '#app-3',
+  data: {
+    seen: true
+  }
+})
+  </script>
+   
+</body>
+</html>
