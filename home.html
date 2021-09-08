@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="home.css">
+<script src="home.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<title>My first website</title>
+    <style>
+        h1 {
+            color:aliceblue;
+            text-align: center;
+
+        }
+
+        h3, h4, p, ul, a {
+            color: aliceblue;
+        }
+    </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class='header' style='color:darkslategrey'>
+    <h1 style="color: darkslategrey">This is my first website</h1>
+</div>
+
+<div class="topnav">
+    <a href="location.html">View your location</a>
+    <a href="support.html">Support the website</a>
+    <a href="contact.html">Contact the Website</a>
+</div>
+
+
+<div class="column">
+    <h3> Headings</h3>
+        <h4>This is a heading</h4>
+     <p>This is a paragraph</p>
+     <img src="download.jpg" style="width:80%">
+</div>
+
+
+<div class="column">
+    <h3>Images</h3>
+    <a href='www.google.com'>This is a link to google</a>
+    <ul>
+        <li>This is a list</li>
+        <li>This is a list</li>
+        <il>This is a list</il>
+    </ul>
+    <div id="app-6">
+        <p>{{ message }}</p>
+        <input v-model="message">
+      </div>
+</div>
+<script>
+    var app6 = new Vue({
+el: '#app-6',
+data: {
+     message: 'Type your message here'
+}
+})
+</script>
+
+
+<div class="column">
+    <h3>To Do list</h3>
+    <ul>
+        <li>This is a list</li>
+        <li>This is a list</li>
+        <il>This is a list</il>
+    </ul>
+
+    <div id="app-4" style="color:aliceblue">
+        <ol>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+        </ol>
+    </div>
+<script>
+var app4 = new Vue({
+    el: '#app-4',
+    data: {
+        todos: [
+        { text: 'Assingment 1: Project' },
+        { text: 'Assignment 2: Project and PPT' },
+        { text: 'Assessment 3: Portolfio' }
+        ]
+    }
+    })
+</script>
+<video width="100%" controls>
+    <source src="plant.mp4" type="video/mp4">
+</video>
+  </div>
+
+  <br><br>
+
+
+</video>
+
+</body>
+</html>
