@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue</title>
+<link rel="stylesheet" href="vue-test.css">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+<div class="header">
+    <h1>Here is the implementation of all of my practice vue components</h1>
+</div>
+
+
+<div class="column">
+
+<!-- Button counter -->
+    <br>    
+    <div id="components-demo" style="size:50%">
+        <button-counter></button-counter>
+    </div>
+
+            <script>
+                Vue.component('button-counter', { 
+                    data: function () {
+                        return {
+                            count: 0
+                        }
+                    },
+                    template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+            })
+            </script>
+
+
+            <script>
+                new Vue({ el: '#components-demo' })
+            </script>
+    <br><br>
+
+<!--List of plants -->
+<div id="app-7" class="list">
+    <ol>
+      <plant-item
+        v-for="item in plants"
+        v-bind:todo="item"
+        v-bind:key="item.id"
+      ></plant-item>
+    </ol>
+</div>
+
+        <script>
+        Vue.component('plant-item', {
+        props: ['todo'],
+        template: '<li>{{ todo.text }}</li>'
+        })
+
+        var app7 = new Vue({
+        el: '#app-7',
+        data: {
+            plants: [
+            { id: 0, text: 'Devils Ivy' },
+            { id: 1, text: 'Zanzibar Gem' },
+            { id: 2, text: 'Spider Plant' }
+            ]
+        }
+        })
+        </script>
+
+</div>
+
+<!-- Different tabs for different plants --> 
+
+<br>
+
+<div class="column">
+<div id="dynamic-component-demo" class="tabs">
+    <button
+      v-for="tab in tabs"
+      v-bind:key="tab"
+      v-bind:class="['tab-button', { active: currentTab === tab }]"
+      v-on:click="currentTab = tab"
+    >
+      {{ tab }}
+    </button>
+
+    <component v-bind:is="currentTabComponent" class="tab"></component>
+</div>
+
+        <script>
+            Vue.component("tab-zanzibar", {
+                template: "<div>All about the zanzibar gem</div>"
+            });
+            Vue.component("tab-spider", {
+                template: "<div>All about spider plant</div>"
+            });
+            Vue.component("tab-devils", {
+                template: "<div>All about Devils Ivy</div>"
+            });
+
+            new Vue({
+                el: "#dynamic-component-demo",
+                data: {
+                currentTab: "zanzibar",
+                tabs: ["zanzibar", "spider", "devils"]
+                },
+                computed: {
+                currentTabComponent: function() {
+                    return "tab-" + this.currentTab.toLowerCase();
+                }
+                }
+            });
+        </script>
+
+<!-- Reverse message -->
+<br><br>
+
+<div id="app-5" style="color:whitesmoke">
+    <p>{{ message }} </p>
+    <button v-on:click="reverseMessage">Reverse!</button>
+</div>
+
+        <script>
+            var app5 = new Vue({
+                el: '#app-5',
+                    data: {
+                        message: 'Press the below button to reverse this message'
+                    },
+                    methods: {
+                        reverseMessage: function () {
+                            this.message = this.message.split('').reverse().join('')
+                        }
+                    }
+                })
+        </script>
+
+</div>
+<!-- User information form-->
+<div class="column">
+<form id="userform">
+    <label for="name">Name:</label><br>
+    <input id="name" type="text" v-model="username" placeholder="Enter Name"> <br><br>
+    
+    <label for="password">Password: </label>
+    <input id="password" type="password" v-model="passwrod" placeholder="Enter Password"> <br><br>
+
+    <label for="email">Email: </label><br>
+    <input id="email" type="text" v-model="email" placeholder="Enter your email here"> <br><br>
+    <br>
+    <button v-on:click="checkInput">Submit</button>
+</form>
+
+<script>
+    var form = new Vue ({
+        el: "#userform",
+        data: {
+            username:'',
+            password: '',
+            email:'',
+        }
+    })
+
+    methods: {
+        checkInput:function() {
+            var str=''
+            if (this.username) {
+                str = str + "username: " + this.username;
+            }
+            if (this.password) {
+                str = str + "password: " + this.password;
+            }
+            if (this.email) {
+                str = str + "email: " + this.email;
+            }
+            if(str) {
+                alert(str)
+            } else {
+                alert("Please enter the required information")
+            }
+        }
+    }
+</script>
+</div>
+</body>
+</html>
