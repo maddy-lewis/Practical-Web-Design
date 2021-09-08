@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Week 6 content</title>
+<link rel="stylesheet" href="week-6.css">
+<script src="https://unpkg.com/vue@next"></script>
+
+</head>
+<body>
+<div class="header">
+<h1>Week 6 Vue work</h1>
+</div>
+<br><br>
+<!-- Checkbox filter-->
+<div id="v-model-multiple-checkboxes" class="demo">
+    <input type="checkbox" id="Direct" value="Direct Light" v-model="checkedNames" />
+    <label for="jack">Direct Light</label>
+    <input type="checkbox" id="indirect" value="Indirect light" v-model="checkedNames" />
+    <label for="Indirect">Indirect Light</label>
+    <input type="checkbox" id="medium" value="Medium Light" v-model="checkedNames" />
+    <label for="mike">Medium light</label>
+    <br />
+    <span>Checked names: {{ checkedNames }}</span>
+</div>
+
+  <script>  
+  Vue.createApp({
+  data() {
+    return {
+      checkedNames: []
+    }
+  }
+}).mount('#v-model-multiple-checkboxes')
+    </script>
+
+<br><br>
+<!-- Drop Down Box-->
+<div id="v-model-select-dynamic" class="demo">
+    <select v-model="selected">
+      <option v-for="option in options" v-bind:value="option.value">
+        {{ option.text }}
+      </option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+             selected: 'A',
+                 options: [
+                { text: 'plant A', value: 'A' },
+                { text: 'plant B', value: 'B' },
+                { text: 'plant C', value: 'C' }
+            ]
+         }
+        }
+        }).mount('#v-model-select-dynamic')
+</script>
+</div>
+</body>
+</html>
